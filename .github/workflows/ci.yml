@@ -1,0 +1,77 @@
+---
+name: Continuous Integration
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  build-tests:
+    name: Build ${{ matrix.input-type }} to ${{ matrix.output-type }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        input-type: [json, yaml]
+        output-type: [html, pdf]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build ${{ matrix.input-type }} to ${{ matrix.output-type }}
+        uses: ./
+        with:
+          action: render
+          file: resume.${{ matrix.input-type }}
+          folder: .github/test/render/${{ matrix.input-type }}-to-${{ matrix.output-type }}
+          theme-name: jsonresume-theme-eloquent
+          theme-local: false
+          output-type: ${{ matrix.output-type }}
+      
+      - name: Check resume.${{ matrix.output-type }} exists
+        env:
+          INPUT_TYPE: ${{ matrix.input-type }}
+          OUTPUT_TYPE: ${{ matrix.output-type }}
+        run: |
+          if [ ! -f .github/test/render/"$INPUT_TYPE"-to-"$OUTPUT_TYPE"/resume."$INPUT_TYPE" ]; then
+            echo "File not found!"
+            exit 1
+          else
+            echo "File found!"
+          fi
+  
+  validate-tests:
+    name: Validate ${{ matrix.input-type }} ${{ matrix.valid-type }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        input-type: [json, yaml]
+        valid-type: [valid, invalid]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate ${{ matrix.input-type }} ${{ matrix.valid-type }}
+        id: validate
+        continue-on-error: true
+        uses: ./
+        with:
+          action: validate
+          file: resume.${{ matrix.input-type }}
+          folder: .github/test/validate/${{ matrix.valid-type }}-${{ matrix.input-type }}
+
+      - name: Validate ${{ matrix.input-type }} ${{ matrix.valid-type }} result
+        env:
+          OUTCOME: ${{ steps.validate.outcome }}
+          VALID_TYPE: ${{ matrix.valid-type }}
+        run: |
+          if [ "$OUTCOME" == "success" ] && [ "$VALID_TYPE" == "invalid" ]; then
+            echo "Validation failed!"
+            exit 1
+          elif [ "$OUTCOME" == "failure" ] && [ "$VALID_TYPE" == "valid" ]; then
+            echo "Validation failed!"
+            exit 1
+          else
+            echo "Validation passed!"
+          fi

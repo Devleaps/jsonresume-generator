@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render": "resumed render",
+    "validate": "resumed validate",
+    "html-to-pdf": "node convert.js"
+  },
+  "devDependencies": {
+    "puppeteer": "^21.6.1",
+    "resumed": "^3.0.1"
+  }
+}

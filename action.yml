@@ -1,0 +1,57 @@
+---
+name: 'jsonresume-generator'
+description: |
+  Generating resumes with JSONResume!
+  Uses the `resumed` CLI to generate resumes from JSON or YAML files.
+  Supports HTML and PDF output, as well as local themes and themes from npm.
+author: 'Devleaps'
+
+# Add your action's branding here. This will appear on the GitHub Marketplace.
+branding:
+  icon: 'book-open'
+  color: 'orange'
+
+# Define your inputs here.
+inputs:
+  action:
+    description: Action to perform. Can be either `render` or `validate`.
+    required: true
+    default: render
+  file:
+    description: Name of the resume file. Support for JSON and YAML files.
+    required: true
+    default: resume.json
+  folder:
+    description: |
+      Name of the folder where the resume file is located. 
+      Can also be a wildcard (e.g. resumes/**). 
+      The file name is still required and expected to be the same for all files.
+    required: false
+  theme-name:
+    description: Name of the theme to use.
+    required: true
+    default: jsonresume-theme-even
+  theme-local:
+    description: | 
+      Where the theme is located. Can be either local or npm.
+      If true, the theme is expected to be in a folder with the theme-name.
+      If false, the theme will be installed through NPM.
+    required: true
+    default: "false"
+  output-type:
+    description: |
+      Type of the output file. 
+      Can be either PDF or HTML.
+    required: false
+    default: html
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.action }}
+    - ${{ inputs.file }}
+    - ${{ inputs.folder }}
+    - ${{ inputs.theme-name }}
+    - ${{ inputs.theme-local }}
+    - ${{ inputs.output-type }}
