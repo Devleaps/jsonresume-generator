@@ -16,6 +16,51 @@ Generating resumes with JSONResume! Makes use of the `resumed` CLI to generate r
 
 ## Inputs
 
+<!-- AUTO-DOC-INPUT:START - Do not remove or modify this section -->
+```yaml
+- uses: Devleaps/jsonresume-generator@
+  id: jsonresume-generator
+  with:
+    # Action to perform. Can be either `render` or `validate`.
+    # Type: string
+    # Default: "render"
+    action: ''
+
+    # Name of the resume file. Support for JSON and 
+    # YAML files. 
+    # Type: string
+    # Default: "resume.json"
+    file: ''
+
+    # Name of the folder where the resume file is 
+    # located. Can also be a wildcard (e.g. resumes/**). The file 
+    # name is still required and expected to be the 
+    # same for all files. 
+    # Type: string
+    folder: ''
+
+    # Type of the output file. Can be either PDF 
+    # or HTML. 
+    # Type: string
+    # Default: "html"
+    output-type: ''
+
+    # Where the theme is located. Can be either local 
+    # or npm. If true, the theme is expected to 
+    # be in a folder with the theme-name. If false, 
+    # the theme will be installed through NPM. 
+    # Type: boolean
+    # Default: "false"
+    theme-local: ''
+
+    # Name of the theme to use.
+    # Type: string
+    # Default: "jsonresume-theme-even"
+    theme-name: ''
+
+```
+<!-- AUTO-DOC-INPUT:END -->
+
 
 ## Usage
 
