@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.0 (2024-03-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* Initial commit
+
+### Features
+
+* Initial commit ([f6f41b4](https://github.com/Devleaps/jsonresume-generator/commit/f6f41b40ff34ce147a3ab9db3ba0842aa8e6d5e5))
+
 ## [1.0.1](https://github.com/Devleaps/jsonresume-generator/compare/v1.0.0...v1.0.1) (2024-03-22)
 
 
