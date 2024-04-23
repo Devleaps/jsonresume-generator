@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/Devleaps/jsonresume-generator/compare/v1.0.0...v1.0.1) (2024-04-23)
+
+
+### Bug Fixes
+
+* Using a local theme failing ([#3](https://github.com/Devleaps/jsonresume-generator/issues/3)) ([edde089](https://github.com/Devleaps/jsonresume-generator/commit/edde089fa7ee320a41d6e298caaabf894df2ced5))
+
 ## 1.0.0 (2024-03-29)
 
 
