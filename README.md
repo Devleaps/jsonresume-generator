@@ -18,7 +18,7 @@ Generating resumes with JSONResume! Makes use of the `resumed` CLI to generate r
 
 <!-- AUTO-DOC-INPUT:START - Do not remove or modify this section -->
 ```yaml
-- uses: Devleaps/jsonresume-generator@
+- uses: Devleaps/jsonresume-generator@v1
   id: jsonresume-generator
   with:
     # Action to perform. Can be either `render` or `validate`.
