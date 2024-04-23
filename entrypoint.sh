@@ -38,8 +38,9 @@ elif [ "$ACTION" = "render" ]; then
     else
         echo "Theme is local, expecting $THEME_NAME to be in the root"
         THEME_LOCATION="${GITHUB_WORKSPACE}/${THEME_NAME}"
-        jq --arg themeName "$THEME_NAME" --args themeLocation "$THEME_LOCATION" '.dependencies[$themeName] = "file:./$themeLocation"' package.json >package.json.tmp && mv package.json.tmp package.json
-        npm install 
+        mv "$THEME_LOCATION" .
+        jq --arg themeName "$THEME_NAME" '.dependencies[$themeName] = "file:" + $themeName' package.json >package.json.tmp && mv package.json.tmp package.json
+        npm install
     fi
 else
     echo "No valid action passed."
