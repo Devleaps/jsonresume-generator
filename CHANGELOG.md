@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/Devleaps/jsonresume-generator/compare/v1.0.1...v1.0.2) (2024-05-17)
+
+
+### Bug Fixes
+
+* Use new release-please Action ([#9](https://github.com/Devleaps/jsonresume-generator/issues/9)) ([1805c84](https://github.com/Devleaps/jsonresume-generator/commit/1805c84766f178533f10b96c30ed1caaccf91129))
+
 ## [1.0.1](https://github.com/Devleaps/jsonresume-generator/compare/v1.0.0...v1.0.1) (2024-04-23)
 
 
