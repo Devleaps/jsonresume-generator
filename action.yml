@@ -1,9 +1,6 @@
 ---
 name: 'jsonresume-generator'
-description: |
-  Generating resumes with JSONResume!
-  Uses the `resumed` CLI to generate resumes from JSON or YAML files.
-  Supports HTML and PDF output, as well as local themes and themes from npm.
+description: 'Generating resumes with JSONResume using the `resumed` CLI!'
 author: 'Devleaps'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
