@@ -50,9 +50,7 @@
       "area": "Your area of study or degree earned",
       "studyType": "",
       "gpa": "",
-      "courses": [
-        ""
-      ]
+      "courses": [""]
     }
   ],
   "awards": [
@@ -74,9 +72,7 @@
     {
       "name": "A category of job skills (e.g. 'Programming Languages')",
       "level": "",
-      "keywords": [
-        "Keywords under this category (e.g. 'Java', 'C++', etc)"
-      ]
+      "keywords": ["Keywords under this category (e.g. 'Java', 'C++', etc)"]
     }
   ],
   "languages": [
