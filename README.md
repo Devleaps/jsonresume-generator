@@ -10,7 +10,7 @@ Generating resumes with JSONResume! Makes use of the `resumed` CLI to generate r
 ## Features
 
 - :white_check_mark: Supports building multiple resumes at once using a glob pattern
-- :white_check_mark: Support for JSON _and_ YAML input files
+- :white_check_mark: Support for JSON *and* YAML input files
 - :white_check_mark: Support for local and remote themes
 - :white_check_mark: Support for PDF and HTML output
 
