@@ -28,7 +28,7 @@ jobs:
           theme-name: jsonresume-theme-eloquent
           theme-local: false
           output-type: ${{ matrix.output-type }}
-      
+
       - name: Check resume.${{ matrix.output-type }} exists
         env:
           INPUT_TYPE: ${{ matrix.input-type }}
@@ -40,7 +40,7 @@ jobs:
           else
             echo "File found!"
           fi
-  
+
   validate-tests:
     name: Validate ${{ matrix.input-type }} ${{ matrix.valid-type }}
     runs-on: ubuntu-latest

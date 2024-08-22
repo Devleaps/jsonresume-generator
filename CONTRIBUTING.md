@@ -1,7 +1,9 @@
 # Contributing Guidelines
+
 Thank you for your interest in contributing to our open-source project! We appreciate your willingness to improve our codebase. Please review the following guidelines to ensure a smooth contribution process.
 
 ## Code of Conduct
+
 We expect all contributors to adhere to our [Code of Conduct](CODE_OF_CONDUCT.md). Please familiarize yourself with its contents before contributing.
 
 ## How to Contribute
@@ -17,15 +19,19 @@ We expect all contributors to adhere to our [Code of Conduct](CODE_OF_CONDUCT.md
 9. Upon approval, your contribution will be merged into the main repository.
 
 ## Reporting Issues
+
 If you encounter any issues, please report them by creating an issue on GitHub. Provide detailed information, including steps to reproduce and your environment setup.
 
 ## Help and Support
+
 For assistance or questions regarding the project or contributing process, utilize GitHub Discussions or open an issue.
 
 ## Code Style and Guidelines
+
 Adhere to the project's existing code style and conventions. Refer to documentation or seek clarification if necessary.
 
 ## License
+
 By contributing, you agree to license your contributions under the project's [LICENSE](LICENSE).
 
 Thank you for your contributions to our project. We value your efforts in enhancing its functionality and quality.
