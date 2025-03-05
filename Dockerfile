@@ -21,3 +21,4 @@ COPY src/* ./
 COPY entrypoint.sh ./
 
 ENTRYPOINT ["/tmp/jsonresume/entrypoint.sh"]
+
