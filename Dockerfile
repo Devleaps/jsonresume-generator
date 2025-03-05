@@ -7,12 +7,14 @@ WORKDIR /tmp/jsonresume
 ENV CHROME_BIN="/usr/bin/chromium-browser" \
     PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="true"
 
-RUN apk update \
-    && apk upgrade \
-    && apk add --no-cache \
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache \
     chromium \
+    chromium-chromedriver \
     yq --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community \
-    jq
+    jq \
+    --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main
 
 COPY src/* ./
 
