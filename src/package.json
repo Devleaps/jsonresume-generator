@@ -7,7 +7,7 @@
     "html-to-pdf": "node convert.js"
   },
   "devDependencies": {
-    "puppeteer": "^21.6.1",
+    "puppeteer": "^24.4.0",
     "resumed": "^3.0.1"
   }
 }
