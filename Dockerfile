@@ -16,4 +16,5 @@ RUN npm install
 RUN npm install jsonresume-theme-even
 RUN npm install jsonresume-theme-eloquent
 
+
 ENTRYPOINT ["/tmp/jsonresume/entrypoint.sh"]

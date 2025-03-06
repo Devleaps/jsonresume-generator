@@ -11,6 +11,11 @@ OUTPUT_TYPE=$6
 
 cd "$WORK_DIRECTORY" || exit
 
+# crude fix to symlink /home/pptruser/.cache
+if [ -d "/home/pptruser/.cache" ]; then
+    ln -s /home/pptruser/.cache ~/.cache
+fi
+
 if echo "$FILE_NAME" | grep -q "\.yaml\|\.yml"; then
     echo "File is YAML"
     FILE_IS_YAML=true
