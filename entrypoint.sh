@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+set -x
+
 ACTION=$1
 FILE_NAME=$2
 FOLDER_NAME=$3
