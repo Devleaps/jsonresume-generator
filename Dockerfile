@@ -1,21 +1,21 @@
-FROM node:21.5.0-alpine
+FROM ghcr.io/puppeteer/puppeteer:24.4.0
 
 ENV WORK_DIRECTORY=/tmp/jsonresume
 
 WORKDIR /tmp/jsonresume
 
-ENV CHROME_BIN="/usr/bin/chromium-browser" \
-    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="true"
-
-RUN apk update \
-    && apk upgrade \
-    && apk add --no-cache \
-    chromium \
-    yq --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community \
-    jq
-
 COPY src/* ./
 
 COPY entrypoint.sh ./
+
+USER root
+RUN wget https://github.com/mikefarah/yq/releases/download/v4.45.1/yq_linux_amd64 -O /usr/bin/yq && chmod +x /usr/bin/yq
+RUN apt-get install -y jq
+RUN chown -R pptruser:pptruser /tmp/jsonresume
+
+RUN npm install
+RUN npm install jsonresume-theme-even
+RUN npm install jsonresume-theme-eloquent
+
 
 ENTRYPOINT ["/tmp/jsonresume/entrypoint.sh"]
