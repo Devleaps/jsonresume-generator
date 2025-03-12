@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/Devleaps/jsonresume-generator/compare/v1.0.2...v1.1.0) (2025-03-12)
+
+
+### Features
+
+* Use Puppeteer 24.4.0 and use different base image ([#14](https://github.com/Devleaps/jsonresume-generator/issues/14)) ([6c79a29](https://github.com/Devleaps/jsonresume-generator/commit/6c79a2958fcba0694aa489879457eef2abaa9c72))
+
 ## [1.0.2](https://github.com/Devleaps/jsonresume-generator/compare/v1.0.1...v1.0.2) (2024-05-17)
 
 ### Bug Fixes
