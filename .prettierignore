@@ -1,2 +1,6 @@
 src/convert.js
 README.md
+.github/test/**/*
+dist/
+node_modules/
+coverage/

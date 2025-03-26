@@ -1,12 +1,12 @@
 ---
-name: "jsonresume-generator"
-description: "Generating resumes with JSONResume using the `resumed` CLI!"
-author: "Devleaps"
+name: 'jsonresume-generator'
+description: 'Generating resumes with JSONResume using the `resumed` CLI!'
+author: 'Devleaps'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
-  icon: "book-open"
-  color: "orange"
+  icon: 'book-open'
+  color: 'orange'
 
 # Define your inputs here.
 inputs:
@@ -34,7 +34,7 @@ inputs:
       If true, the theme is expected to be in a folder with the theme-name.
       If false, the theme will be installed through NPM.
     required: true
-    default: "false"
+    default: 'false'
   output-type:
     description: |
       Type of the output file. 
@@ -43,12 +43,5 @@ inputs:
     default: html
 
 runs:
-  using: "docker"
-  image: "Dockerfile"
-  args:
-    - ${{ inputs.action }}
-    - ${{ inputs.file }}
-    - ${{ inputs.folder }}
-    - ${{ inputs.theme-name }}
-    - ${{ inputs.theme-local }}
-    - ${{ inputs.output-type }}
+  using: 'node20'
+  main: 'dist/index.js'
