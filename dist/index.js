@@ -55,7 +55,11 @@ async function getInputs() {
 }
 async function findResumeFiles(fileName, folderName) {
     const pattern = folderName ? `${folderName}/**/${fileName}` : `**/${fileName}`;
-    return glob.glob.sync(pattern, { ignore: 'node_modules/**' });
+    const files = glob.glob.sync(pattern, {
+        ignore: ['node_modules/**', 'coverage/**', 'dist/**'],
+        nodir: true
+    });
+    return files;
 }
 async function convertYamlToJson(yamlFile) {
     const content = fs__namespace.readFileSync(yamlFile, 'utf8');
@@ -123,8 +127,10 @@ async function run() {
         if (files.length === 0) {
             throw new Error(`No resume files found matching ${inputs.file}`);
         }
-        // Install theme after dependencies
-        await installTheme(inputs.themeName, inputs.themeLocal);
+        // Install theme after dependencies only if rendering
+        if (inputs.action === 'render') {
+            await installTheme(inputs.themeName, inputs.themeLocal);
+        }
         // Process each file
         for (const file of files) {
             core__namespace.info(`Processing ${file}...`);

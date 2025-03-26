@@ -45,7 +45,11 @@ async function findResumeFiles(
   folderName?: string
 ): Promise<string[]> {
   const pattern = folderName ? `${folderName}/**/${fileName}` : `**/${fileName}`
-  return glob.sync(pattern, { ignore: 'node_modules/**' })
+  const files = glob.sync(pattern, { 
+    ignore: ['node_modules/**', 'coverage/**', 'dist/**'],
+    nodir: true
+  })
+  return files
 }
 
 async function convertYamlToJson(yamlFile: string): Promise<string> {
@@ -136,8 +140,10 @@ export async function run(): Promise<void> {
       throw new Error(`No resume files found matching ${inputs.file}`)
     }
 
-    // Install theme after dependencies
-    await installTheme(inputs.themeName, inputs.themeLocal)
+    // Install theme after dependencies only if rendering
+    if (inputs.action === 'render') {
+      await installTheme(inputs.themeName, inputs.themeLocal)
+    }
 
     // Process each file
     for (const file of files) {
