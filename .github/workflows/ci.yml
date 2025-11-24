@@ -17,7 +17,7 @@ jobs:
         output-type: [html, pdf]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build ${{ matrix.input-type }} to ${{ matrix.output-type }}
         uses: ./
@@ -50,7 +50,7 @@ jobs:
         valid-type: [valid, invalid]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Validate ${{ matrix.input-type }} ${{ matrix.valid-type }}
         id: validate
